@@ -1,0 +1,156 @@
+@media only screen and (min-device-width: 300px) and (max-device-width: 460px) {
+    .header h2 {
+        font-size: 1rem;
+    }
+    .header img {
+        width: 25px;
+    }
+    .landing__seachbox__text p {
+        font-size: 0.75rem;
+    }
+    .landing__seachbox__text span {
+        font-size: 0.6rem;
+    }
+    .landing__searchbox__input input {
+        width: 180px;
+    }
+    .landing__searchbox__input img {
+        margin: auto 150px;
+    }
+    .landingbox__content div {
+        padding: 20px;
+        margin: 30px 10px;
+    }
+    .landingbox__content h3 {
+        font-size: 1rem;
+    }
+    .landingbox__content span {
+        width: 200px;
+        font-size: 0.7rem;
+    }
+    .button {
+        font-size: 0.7rem;
+        height: 40px;
+        width: 100px;
+    }
+    input[type="text"]:not(#search),
+    select,
+    textarea {
+        width: 100%;
+        font-size: 0.7rem;
+    }
+    .filter h2 {
+        font-size: 1rem;
+    }
+    .addnote {
+        margin: 30px;
+        display: block;
+    }
+    .notebody {
+        margin: auto;
+        justify-content: center;
+    }
+    .notebody__lists {
+        display: grid;
+    }
+    .filter__item {
+        display: none;
+    }
+    .filter__item__res {
+        display: flex;
+    }
+    .filter__item__res {
+        font-size: 0.6rem;
+        width: 90%;
+        margin: auto;
+    }
+    .filter__item__res div span {
+        font-size: 0.5rem;
+    }
+    .notelist {
+        font-size: 0.8rem;
+    }
+    .notlist__item p {
+        font-size: 0.7rem;
+    }
+    .footer__content p,
+    .footer__content h4,
+    .footer__socialmedia {
+        font-size: 0.7rem;
+    }
+    .footer__icons {
+        width: 100%;
+    }
+}
+@media only screen and (min-device-width: 460px) and (max-device-width: 740px) {
+    .header h2 {
+        font-size: 1rem;
+    }
+    .header img {
+        width: 25px;
+    }
+    .landingbox__content div {
+        padding: 20px;
+        margin: 30px 10px;
+    }
+    .landingbox__content span {
+        width: 300px;
+        font-size: 0.7rem;
+    }
+    .button {
+        font-size: 0.8rem;
+        height: 50px;
+        width: 150px;
+    }
+    input[type="text"]:not(#search),
+    select,
+    textarea {
+        width: 100%;
+        font-size: 0.7rem;
+    }
+
+    .filter h2 {
+        font-size: 1rem;
+    }
+    .addnote {
+        margin: 10px;
+    }
+    .notelist__items {
+        margin: 10px;
+    }
+    .notebody {
+        margin: 20px 30px 0 0;
+    }
+    .filter__item {
+        font-size: 0.9rem;
+        width: auto;
+    }
+    .filter__item div span {
+        font-size: 0.6rem;
+        margin: 10px;
+    }
+    .notelist {
+        font-size: 0.8rem;
+    }
+    .notlist__item p {
+        font-size: 0.7rem;
+    }
+    .footer__content p,
+    .footer__content h4,
+    .footer__socialmedia {
+        font-size: 0.7rem;
+    }
+    .footer__icons {
+        width: 70%;
+    }
+}
+@media only screen and (min-device-width: 740px) and (max-device-width: 780px) {
+    input[type="text"]:not(#search),
+    select,
+    textarea {
+        width: 100%;
+    }
+    .filter__item {
+        width: 20rem;
+    }
+}
