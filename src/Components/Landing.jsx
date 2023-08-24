@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "@mui/material/Modal";
 
-export default function Landing() {
+export default function Landing({ onSerach, serachBox }) {
     return (
         <div>
-            <FilterBox />
+            <FilterBox onSerach={onSerach} serachBox={serachBox} />
             <LandingBox />
         </div>
     );
 }
 
-function FilterBox() {
+function FilterBox({ onSerach, serachBox }) {
     return (
         <div className="landing">
             <div className="landing__searchbox">
                 <div className="landing__searchbox__input">
                     <img src="/Svg/search.svg" />
-                    <input type="text" placeholder="Search" id="search" />
+                    <input type="text" placeholder="Search Notes ..." id="search" value={serachBox} onChange={onSerach} />
                 </div>
                 <div className="landing__seachbox__text">
                     <p>Vase Note App!</p>
@@ -26,18 +27,41 @@ function FilterBox() {
     );
 }
 
-function LandingBox() {
+function LandingBox({ serachBox }) {
+    const [modal, setModal] = useState(false);
+    const handleOpen = () => {
+        console.log(modal);
+        setModal(true);
+    };
+    const handleClose = () => setModal(false);
     return (
         <div className="landingbox">
-            {/* <img className="landingbox__back" src="/Svg/back.svg" />s */}
             <div className="landingbox__content">
                 <img src="/Svg/imaglanding.svg" />
                 <div>
-                    <h3>Lorem ipsum!</h3>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet augue a nibh dapibus lobortis.</span>
-                    <input type="button" value="Read more" className="button" />
+                    <h3>Simple Note App!</h3>
+                    <span>You can Note your plan here. If you want to learn this app, click on the down button </span>
+                    <input type="button" value="Read more" className="button" onClick={() => setModal(true)} />
                 </div>
             </div>
+            <Modal open={modal} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                <div id="modal">
+                    <span onClick={handleClose}>&#215;</span>
+                    <h4>Connect with me</h4>
+                    <p>
+                        <img src="/Svg/instagram.svg" /> ID :{" "}
+                        <a target="_blank" href="https://instagram.com/m_y.dev?igshid=MzRlODBiNWFlZA==">
+                            m_y.dev
+                        </a>
+                    </p>
+                    <p>
+                        <img src="/Svg/telegram.svg" /> ID :
+                        <a target="_blank" href="https://t.me/m_y_dev">
+                            m_y_dev
+                        </a>
+                    </p>
+                </div>
+            </Modal>
         </div>
     );
 }

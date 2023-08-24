@@ -45,6 +45,11 @@ label {
     padding: 5px;
     margin: -10px 20px;
 }
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
 .landingbox__content .button {
     margin: 30px auto;
     display: flex;
@@ -61,7 +66,7 @@ label {
     cursor: pointer;
 }
 .header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 60px;
     box-shadow: 0px 0px 4px rgba(94, 84, 84, 0.25);
@@ -69,6 +74,8 @@ label {
     align-items: center;
     flex-direction: row-reverse;
     padding: 14px;
+    background-color: var(--white);
+    z-index: 1;
 }
 .header h2 {
     text-align: center;
@@ -172,6 +179,7 @@ label {
 .sort {
     cursor: pointer;
     padding-left: 35px;
+    font-size: 0.8rem;
 }
 .sort__select {
     display: flex;
@@ -232,6 +240,10 @@ label {
 .notlist__item__action input {
     width: 18px;
 }
+.notlist__item__action img,
+.notlist__item__action input {
+    cursor: pointer;
+}
 .notlist__item__action input:hover {
     background-color: var(--blue);
 }
@@ -277,14 +289,18 @@ input[type="checkbox"]:after {
 .filter__item__res {
     display: none;
 }
+.notlist__item__completed {
+    opacity: 0.2;
+    text-decoration: line-through;
+}
 .notnote {
     display: flex;
     align-items: center;
     color: var(--gray);
     margin: auto;
 }
-.notebody img {
-    padding: 5px;
+.notnote img {
+    padding: 10px;
 }
 
 .footer {
@@ -341,4 +357,60 @@ input[type="checkbox"]:after {
     width: 40%;
     margin-top: 10px;
     justify-content: space-around;
+}
+.footer__content__text a:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border-radius: 50px;
+    padding: 0 5px;
+}
+#description {
+    height: 120px !important;
+}
+
+#modal {
+    background-color: var(--white);
+    width: 400px;
+    height: 200px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 4px rgba(94, 84, 84, 0.25);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--gray);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+#modal span {
+    cursor: pointer;
+}
+#modal h4 {
+    display: flex;
+    justify-content: center;
+}
+#modal div {
+    padding: 10px;
+}
+#modal p {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+#modal a {
+    color: var(--gray);
+}
+#modal a:hover,
+#modal span:hover {
+    color: var(--blue);
+}
+#modal a:hover {
+    font-size: 1rem;
+}
+
+#modal p img {
+    background-color: var(--blue);
+    padding: 10px;
+    border-radius: 50px;
+    width: 40px;
 }
