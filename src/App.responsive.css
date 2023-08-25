@@ -1,21 +1,22 @@
-@media only screen and (min-device-width: 300px) and (max-device-width: 460px) {
+@media only screen and (min-device-width: 300px) and (max-device-width: 459px) {
     .header h2 {
         font-size: 1rem;
     }
     .header img {
         width: 25px;
     }
-    .landing__seachbox__text p {
+    .seachbox__text p {
         font-size: 0.75rem;
     }
-    .landing__seachbox__text span {
+    .seachbox__text span {
         font-size: 0.6rem;
     }
-    .landing__searchbox__input input {
-        width: 180px;
+    .searchbox__input {
+        margin-top: 15px;
     }
-    .landing__searchbox__input img {
-        margin: auto 150px;
+    .searchbox__input img {
+        margin: auto 160px;
+        width: 15px;
     }
     .landingbox__content div {
         padding: 20px;
@@ -25,30 +26,33 @@
         font-size: 1rem;
     }
     .landingbox__content span {
-        width: 200px;
-        font-size: 0.7rem;
+        width: auto;
+        font-size: 0.5rem;
     }
     .button {
-        font-size: 0.7rem;
-        height: 40px;
-        width: 100px;
+        font-size: 0.9rem;
     }
-    input[type="text"]:not(#search),
+    input[type="text"],
     select,
     textarea {
-        width: 100%;
-        font-size: 0.7rem;
+        max-width: 240px !important;
+    }
+    #search {
+        width: 90%;
     }
     .filter h2 {
         font-size: 1rem;
     }
     .addnote {
         margin: 30px;
-        display: block;
     }
-    .notebody {
-        margin: auto;
-        justify-content: center;
+    .sort__search__box {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .sort__select {
+        width: 200px;
     }
     .notebody__lists {
         display: grid;
@@ -81,6 +85,9 @@
     .footer__icons {
         width: 100%;
     }
+    .footer__content img {
+        width: 12px;
+    }
 }
 @media only screen and (min-device-width: 460px) and (max-device-width: 740px) {
     .header h2 {
@@ -94,26 +101,37 @@
         margin: 30px 10px;
     }
     .landingbox__content span {
-        width: 300px;
+        width: auto;
         font-size: 0.7rem;
     }
     .button {
         font-size: 0.8rem;
         height: 50px;
-        width: 150px;
+        width: 135px;
     }
-    input[type="text"]:not(#search),
-    select,
+    input[type="text"],
     textarea {
-        width: 100%;
+        width: 100% !important;
         font-size: 0.7rem;
     }
-
+    .sort__search__box {
+        padding: 0;
+        width: 90%;
+    }
+    .searchbox__input img {
+        margin: auto 130px;
+        width: 18px;
+    }
+    .filter {
+        padding: 30px;
+        align-items: center;
+    }
     .filter h2 {
         font-size: 1rem;
     }
     .addnote {
         margin: 10px;
+        align-items: inherit;
     }
     .notelist__items {
         margin: 10px;
@@ -122,7 +140,7 @@
         margin: 20px 30px 0 0;
     }
     .filter__item {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         width: auto;
     }
     .filter__item div span {
@@ -143,14 +161,36 @@
     .footer__icons {
         width: 70%;
     }
+    .footer__content img {
+        width: 15px;
+    }
 }
-@media only screen and (min-device-width: 740px) and (max-device-width: 780px) {
+@media only screen and (min-device-width: 740px) and (max-device-width: 976px) {
     input[type="text"]:not(#search),
-    select,
     textarea {
-        width: 100%;
+        width: 100% !important;
     }
     .filter__item {
-        width: 20rem;
+        width: 21rem;
+    }
+    .addnote {
+        margin: 10px;
+        align-items: inherit;
+    }
+    .filter__item div span,
+    .filter__item__res div span {
+        font-size: 0.7rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+    .filter h2 {
+        font-size: 1.3rem;
+    }
+    .footer__content img {
+        width: 20px;
+    }
+    .landingbox__content span {
+        width: auto;
     }
 }

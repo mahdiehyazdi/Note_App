@@ -1,38 +1,28 @@
 import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 
-export default function Landing({ onSerach, serachBox }) {
+export default function Landing() {
     return (
         <div>
-            <FilterBox onSerach={onSerach} serachBox={serachBox} />
+            <TextLanding />
             <LandingBox />
         </div>
     );
 }
 
-function FilterBox({ onSerach, serachBox }) {
+function TextLanding() {
     return (
         <div className="landing">
-            <div className="landing__searchbox">
-                <div className="landing__searchbox__input">
-                    <img src="/Svg/search.svg" />
-                    <input type="text" placeholder="Search Notes ..." id="search" value={serachBox} onChange={onSerach} />
-                </div>
-                <div className="landing__seachbox__text">
-                    <p>Vase Note App!</p>
-                    <span>Note your text</span>
-                </div>
+            <div className="landing__text">
+                <p>Vase Note App!</p>
+                <span>Note your text</span>
             </div>
         </div>
     );
 }
 
-function LandingBox({ serachBox }) {
+function LandingBox() {
     const [modal, setModal] = useState(false);
-    const handleOpen = () => {
-        console.log(modal);
-        setModal(true);
-    };
     const handleClose = () => setModal(false);
     return (
         <div className="landingbox">

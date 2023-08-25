@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddNewNote from "./AddNewNote";
 import NoteStatus from "./NoteStatus";
 import Sort from "./Sort";
 import Landing from "./Landing";
 
 export default function NoeteBody() {
-    const [newNotes, setNewNote] = useState([]);
+    const [newNotes, setNewNote] = useState(() => {
+        return JSON.parse(localStorage.getItem("Note")) || [];
+    });
     const [sortNotes, setSortNotes] = useState("sortNote");
     const [serachBox, setSearchBox] = useState("");
-
     const handleAddNote = (newNote) => {
         setNewNote((prevnote) => [...prevnote, newNote]);
     };
+    useEffect(() => {
+        localStorage.setItem("Note", JSON.stringify(newNotes));
+    }, [newNotes]);
+
     const handleDelteNote = (id) => {
         setNewNote((prevNotes) => prevNotes.filter((n) => n.id !== id));
     };
@@ -25,8 +30,11 @@ export default function NoeteBody() {
 
     return (
         <div>
-            <Landing serachBox={serachBox} onSerach={(e) => setSearchBox(e.target.value)} />
-            <Sort sortNotes={sortNotes} onSort={(e) => setSortNotes(e.target.value)} />
+            <Landing />
+            <div className="sort__search__box">
+                <Sort sortNotes={sortNotes} onSort={(e) => setSortNotes(e.target.value)} />
+                <SearchBox onSerach={(e) => setSearchBox(e.target.value)} serachBox={serachBox} />
+            </div>
             <div className="filter">
                 <h2>Add New Note!</h2>
                 <NoteStatus notes={newNotes} filterItem="filter__item" />
@@ -35,6 +43,15 @@ export default function NoeteBody() {
                 <AddNewNote onAddNote={handleAddNote} />
                 <NoteList notes={serached} sortNotes={sortNotes} onDelete={handleDelteNote} onCompleteNote={handleCompletedNote} />
             </div>
+        </div>
+    );
+}
+
+function SearchBox({ onSerach, serachBox }) {
+    return (
+        <div className="searchbox__input">
+            <img src="/Svg/search.svg" />
+            <input type="text" placeholder="Search Notes ..." id="search" value={serachBox} onChange={onSerach} />
         </div>
     );
 }

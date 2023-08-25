@@ -1,4 +1,4 @@
-input[type="text"]:not(#search),
+input[type="text"],
 select,
 textarea {
     border: 1px solid var(--border);
@@ -10,7 +10,7 @@ textarea {
     border-radius: 8px;
     padding: 10px;
 }
-input[type="text"]:not(#search) {
+input[type="text"] {
     height: 50px;
 }
 input[type="text"]:not(#search),
@@ -25,7 +25,7 @@ textarea::placeholder {
     font-size: 0.7rem;
     color: var(--third__gray);
 }
-input[type="text"]:not(#search):focus::placeholder,
+input[type="text"]:focus::placeholder,
 textarea:focus::placeholder {
     opacity: 0;
 }
@@ -86,43 +86,19 @@ a {
 }
 .landing {
     margin-top: 100px;
-}
-.landing__searchbox {
-    width: 90%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
-.landing__searchbox__input {
-    display: flex;
-    align-items: center;
-}
-.landing__searchbox__input img {
-    position: absolute;
-    margin: auto 170px;
-}
-.landing__searchbox__input input {
-    background-color: var(--back__input);
-    border-radius: 8px;
-    width: 200px;
-    font-size: 1rem;
-    color: var(--gray);
-    padding: 10px;
-    height: 35px;
-}
-.landing__searchbox__input input::placeholder {
-    color: var(--third__gray);
-}
-.landing__seachbox__text {
+.landing__text {
     text-align: center;
 }
-.landing__seachbox__text p {
+.landing__text p {
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--blue);
 }
-.landing__seachbox__text span {
+.landing__text span {
     color: var(--gray);
     font-weight: 700;
     font-size: 0.7rem;
@@ -170,12 +146,6 @@ a {
     display: block;
 }
 
-.notebody {
-    margin: 50px 30px 0 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
 .sort {
     cursor: pointer;
     padding-left: 35px;
@@ -188,6 +158,33 @@ a {
 .sort__select img {
     position: absolute;
     padding-left: 15px;
+}
+.searchbox__input {
+    display: flex;
+    align-items: center;
+    margin: 0 50px;
+}
+.searchbox__input img {
+    position: absolute;
+    margin: auto 150px;
+}
+.searchbox__input input {
+    border-radius: 8px;
+    width: 180px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secound__gray);
+    padding: 10px;
+    height: 35px;
+    border: 1px solid var(--border);
+}
+.searchbox__input input::placeholder {
+    color: var(--third__gray);
+}
+.sort__search__box {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 50px;
 }
 .addnote {
     display: flex;
@@ -211,10 +208,9 @@ a {
 }
 .notlist__item {
     width: 520px;
-    height: 123px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 25px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -370,7 +366,7 @@ input[type="checkbox"]:after {
 
 #modal {
     background-color: var(--white);
-    width: 400px;
+    width: 250px;
     height: 200px;
     margin: 100px auto;
     box-shadow: 0px 0px 4px rgba(94, 84, 84, 0.25);
