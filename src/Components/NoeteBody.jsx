@@ -1,62 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AddNewNote from "./AddNewNote";
 import NoteStatus from "./NoteStatus";
 import Sort from "./Sort";
 import Landing from "./Landing";
+import Checkbox from "@mui/material/Checkbox";
+import { UseTheme } from "./context/ThemeProvider";
+import { UseNewNotes, UseNotesDispach } from "./context/NoteProvider";
+import Grid from "@mui/material/Grid";
+import SearchImg from "../../public/Svg/SearchImg";
+import TagIcon from "../../public/Svg/TagIcon";
+import Messages from "./Messages";
+import Danger from "../../public/Svg/Danger";
 
 export default function NoeteBody() {
-    const [newNotes, setNewNote] = useState(() => {
-        return JSON.parse(localStorage.getItem("Note")) || [];
-    });
+    const { theme } = UseTheme();
     const [sortNotes, setSortNotes] = useState("sortNote");
     const [serachBox, setSearchBox] = useState("");
-    const handleAddNote = (newNote) => {
-        setNewNote((prevnote) => [...prevnote, newNote]);
-    };
-    useEffect(() => {
-        localStorage.setItem("Note", JSON.stringify(newNotes));
-    }, [newNotes]);
-
-    const handleDelteNote = (id) => {
-        setNewNote((prevNotes) => prevNotes.filter((n) => n.id !== id));
-    };
-    const handleCompletedNote = (e) => {
-        const noteId = Number(e.target.value);
-        setNewNote((prevNotes) => prevNotes.map((note) => (note.id === noteId ? { ...note, completed: !note.completed } : note)));
-    };
-    const serached = [...newNotes].filter((s) => {
-        return `${s.title.toLowerCase()} ${s.description.toLowerCase()}`.includes(serachBox.toLowerCase());
-    });
 
     return (
         <div>
             <Landing />
-            <div className="sort__search__box">
-                <Sort sortNotes={sortNotes} onSort={(e) => setSortNotes(e.target.value)} />
-                <SearchBox onSerach={(e) => setSearchBox(e.target.value)} serachBox={serachBox} />
-            </div>
-            <div className="filter">
-                <h2>Add New Note!</h2>
-                <NoteStatus notes={newNotes} filterItem="filter__item" />
-            </div>
-            <div className="notebody__lists">
-                <AddNewNote onAddNote={handleAddNote} />
-                <NoteList notes={serached} sortNotes={sortNotes} onDelete={handleDelteNote} onCompleteNote={handleCompletedNote} />
-            </div>
+            <Grid container className={"filter " + theme}>
+                <Grid item xs={12} sm={3}>
+                    <h2>Add New Note!</h2>
+                </Grid>
+                <Grid xs={8} item className="sort__search__box">
+                    <Grid xs={5} item>
+                        <NoteStatus filterItem={"filter__item " + theme} />
+                    </Grid>
+                    <Grid xs={5} item className="filter__item">
+                        <Sort sortNotes={sortNotes} onSort={(e) => setSortNotes(e.target.value)} />
+                        <SearchBox onSerach={(e) => setSearchBox(e.target.value)} serachBox={serachBox} theme={theme} />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container className="notebody__lists">
+                <Grid item xs={12} md={4} sm={5}>
+                    <AddNewNote />
+                </Grid>
+                <Grid item xs={12} md={8} sm={7}>
+                    <NoteList sortNotes={sortNotes} serachBox={serachBox} />
+                </Grid>
+            </Grid>
         </div>
     );
 }
 
-function SearchBox({ onSerach, serachBox }) {
+function SearchBox({ onSerach, serachBox, theme }) {
     return (
         <div className="searchbox__input">
-            <img src="/Svg/search.svg" />
-            <input type="text" placeholder="Search Notes ..." id="search" value={serachBox} onChange={onSerach} />
+            <SearchImg fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
+            <input type="text" placeholder="Search Notes ..." className={"search " + theme} value={serachBox} onChange={onSerach} />
         </div>
     );
 }
 
-function NoteList({ notes, onDelete, onCompleteNote, noteStatus, sortNotes }) {
+function NoteList({ sortNotes, serachBox }) {
+    const note = UseNewNotes();
+    const { theme } = UseTheme();
+
+    const notes = [...note].filter((s) => {
+        return `${s.title.toLowerCase()} ${s.description.toLowerCase()}`.includes(serachBox.toLowerCase());
+    });
     let sortedNotes = notes;
     if (sortNotes === "Earliest") {
         sortedNotes = [...notes].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
@@ -68,34 +73,84 @@ function NoteList({ notes, onDelete, onCompleteNote, noteStatus, sortNotes }) {
         sortedNotes = [...notes].sort((a, b) => Number(a.completed) - Number(b.completed));
     }
     return (
-        <div className="notelist">
-            <NoteStatus notes={notes} filterItem="filter__item__res" />
-            {sortedNotes.map((note) => (
-                <NoteItem key={note.id} note={note} onDeleteNote={onDelete} onCompleteNote={onCompleteNote} />
-            ))}
-        </div>
+        <React.Fragment>
+            {!note.lenght ? (
+                <div className="notelist">
+                    <NoteStatus filterItem={"filter__item__res " + theme} />
+                    <Grid xs={12} item className={"filter__item__res " + theme}>
+                        <Sort sortNotes={sortNotes} onSort={(e) => setSortNotes(e.target.value)} />
+                        <SearchBox onSerach={(e) => setSearchBox(e.target.value)} serachBox={serachBox} theme={theme} />
+                    </Grid>
+                    <Grid container>
+                        {sortedNotes.map((note) => (
+                            <Grid xs={6} item key={note.id}>
+                                <NoteItem note={note} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </div>
+            ) : (
+                <Messages text="Add Your Note and Enjoy!">
+                    <Danger />
+                </Messages>
+            )}
+        </React.Fragment>
     );
 }
 
-function NoteItem({ note, onDeleteNote, onCompleteNote }) {
+function NoteItem({ note }) {
+    const { theme } = UseTheme();
+    const dispatch = UseNotesDispach();
     const options = {
         year: "numeric",
         day: "numeric",
         month: "long",
     };
+
+    const onCompleteNote = (e) => {
+        const noteId = Number(e.target.value);
+        dispatch({ type: "Complete", payload: noteId });
+    };
+    const onDelete = (id) => {
+        dispatch({ type: "Delete", payload: id });
+    };
+
     return (
-        <div className="notelist__items">
-            <div className="notlist__item">
+        <div>
+            <div className={"notlist__item " + theme}>
+                <div className="notelist__item__header">
+                    <span style={{ backgroundColor: !note.completed ? note.colorTag.colorCode : "var(--slate-100)", color: !note.completed ? note.colorTag.fontColor : "var(--slate-600)" }}>
+                        {note.tag}
+                        <TagIcon fill={!note.completed ? note.colorTag.fontColor : "var(--slate-600)"} />
+                    </span>
+                    <div className="notlist__item__action">
+                        <img src="/Svg/remove.svg" onClick={(id) => onDelete(note.id)} />
+                        <Checkbox
+                            checked={note.completed}
+                            value={note.id}
+                            onChange={onCompleteNote}
+                            sx={{
+                                color: theme
+                                    ? {
+                                          color: "var(--slate-25)",
+                                      }
+                                    : {
+                                          color: "var(--slate-600)",
+                                      },
+                                "&:hover": { bgcolor: "transparent" },
+                                "&.Mui-checked": {
+                                    color: "var(--green-600)",
+                                },
+                            }}
+                        />
+                    </div>
+                </div>
                 <div className={!note.completed ? "" : "notlist__item__completed"}>
                     <h4>{note.title}</h4>
-                    <p>{note.description}</p>
+                    <span>{note.description}</span>
                 </div>
-                <div className="notlist__item__action">
-                    <img src="/Svg/remove.svg" onClick={() => onDeleteNote(note.id)} />
-                    <input type="checkbox" checked={note.completed} id={note.id} name={note.id} value={note.id} onChange={onCompleteNote} />
-                </div>
+                <label className={"lable " + theme}>{new Date(note.createdAt).toLocaleDateString("en-Us", options)}</label>
             </div>
-            <label>{new Date(note.createdAt).toLocaleDateString("en-Us", options)}</label>
         </div>
     );
 }

@@ -1,17 +1,22 @@
-import React from "react";
+import Github from "../../public/Svg/Github";
+import Instagram from "../../public/Svg/Instagram";
+import Linkdin from "../../public/Svg/Linkdin";
+import Telegram from "../../public/Svg/Telegram";
+import { UseTheme } from "./context/ThemeProvider";
 
 export default function Footer() {
+    const { theme } = UseTheme();
+
     return (
         <div className="footer">
             <div className="footer__content">
-                <div className="footer__content__text">
-                    <p>I have several App in React.js, if you need to connect with me, click on my full name down</p>
-                    <h4>
-                        Powered by &nbsp;
-                        <a target="_blank" href="mailto: mahdiehyazdi801@gmail.com">
+                <div className={"footer__content__text " + theme}>
+                    <h5>
+                        Created by &nbsp;
+                        <a className={theme} target="_blank" href="mailto: mahdiehyazdi801@gmail.com">
                             Mahdieh Yazdi
                         </a>
-                    </h4>
+                    </h5>
                 </div>
                 <SocialMedia />
             </div>
@@ -20,19 +25,18 @@ export default function Footer() {
     function SocialMedia() {
         return (
             <div className="footer__socialmedia">
-                <h5>Follow me on sioal media</h5>
                 <div className="footer__icons">
                     <a target="_blank" href="https://instagram.com/m_y.dev?igshid=MzRlODBiNWFlZA==">
-                        <img src="/Svg/instagram.svg" />
+                        <Instagram fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
                     </a>
                     <a target="_blank" href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BnN1D4VqlSdakv%2BCa7F76iw%3D%3D">
-                        <img src="/Svg/linkdin.svg" />
+                        <Linkdin fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
                     </a>
                     <a target="_blank" href="https://t.me/m_y_dev">
-                        <img src="/Svg/telegram.svg" />
+                        <Telegram fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
                     </a>
                     <a target="_blank" href="https://github.com/mahdiehyazdi">
-                        <img src="/Svg/github.svg" />
+                        <Github fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
                     </a>
                 </div>
             </div>

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import SortImg from "../../public/Svg/SortImg";
+import { UseTheme } from "./context/ThemeProvider";
 
 export default function Sort({ sortNotes, onSort }) {
+    const { theme } = UseTheme();
     return (
         <div className="sort__select">
-            <img src="/Svg/sort.svg" />
-            <select className="sort" value={sortNotes} onChange={onSort}>
+            <SortImg fill={theme === "dark" ? "var(--slate-25)" : "var(--slate-600)"} />
+            <select className={"sort " + theme} value={sortNotes} onChange={onSort}>
                 <option value="sortNote" disabled>
                     Sort Note
                 </option>

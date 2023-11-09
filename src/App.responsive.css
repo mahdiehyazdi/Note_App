@@ -1,50 +1,107 @@
-@media only screen and (min-device-width: 300px) and (max-device-width: 459px) {
-    .header h2 {
-        font-size: 1rem;
+@media only screen and (min-device-width: 1px) and (max-device-width: 459px) {
+    .header h4 {
+        font-size: 0.9rem;
+    }
+    .theme__text {
+        font-size: 0.55rem;
+    }
+    .css-1o554mq-MuiSwitch-root,
+    .css-ufx4qe-MuiSwitch-root {
+        margin: 2px !important;
+        width: 55px !important;
+        height: 25px !important;
+    }
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb,
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-thumb {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+        transform: translateX(28px) !important;
+    }
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb:before {
+        background-position: 4px 3px !important;
+        -webkit-background-position: 4px 3px !important;
+    }
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb:before {
+        background-position: 3px 3px !important;
+        -webkit-background-position: 3px 3px !important;
     }
     .header img {
-        width: 25px;
+        width: 20px;
     }
-    .seachbox__text p {
-        font-size: 0.75rem;
+    .landing__progress {
+        display: grid;
+    }
+    .landingbox__guid {
+        margin: 10px;
+    }
+    .landingbox__guid span {
+        font-size: 0.7rem;
+        margin-left: 5px;
+    }
+    .landingbox__guid__circle {
+        width: 15px;
+        height: 15px;
     }
     .seachbox__text span {
         font-size: 0.6rem;
     }
     .searchbox__input {
-        margin-top: 15px;
+        margin: 15px;
+    }
+    .searchbox__input,
+    .sort__select select {
+        font-size: 0.7rem !important;
     }
     .searchbox__input img {
         margin: auto 160px;
         width: 15px;
     }
     .landingbox__content div {
-        padding: 20px;
-        margin: 30px 10px;
+        margin-top: 5px;
+        padding: 0px !important;
     }
     .landingbox__content h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        font-weight: 800;
+        width: 107px;
     }
     .landingbox__content span {
         width: auto;
-        font-size: 0.5rem;
+        font-size: 0.56rem;
     }
     .button {
-        font-size: 0.9rem;
+        font-size: 0.8rem !important;
+        width: 110px !important;
+        height: 40px !important;
+    }
+    .landing__arrow {
+        width: 80px !important;
+        margin: 98px 2px 0px -30px;
+    }
+    .filter {
+        padding: 20px 30px;
     }
     input[type="text"],
     select,
     textarea {
-        max-width: 240px !important;
+        max-width: 270px !important;
     }
     #search {
         width: 90%;
     }
     .filter h2 {
-        font-size: 1rem;
+        font-size: 1.4rem;
+        text-align: center;
     }
     .addnote {
-        margin: 30px;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+    }
+    .addnote div:not(.addnote__star) {
+        margin-bottom: 25px;
     }
     .sort__search__box {
         flex-direction: column;
@@ -61,24 +118,60 @@
         display: none;
     }
     .filter__item__res {
-        display: flex;
-    }
-    .filter__item__res {
+        display: flex !important;
+        justify-content: space-around;
         font-size: 0.6rem;
-        width: 90%;
-        margin: auto;
+        width: 100%;
+        margin: 10px auto;
     }
     .filter__item__res div span {
         font-size: 0.5rem;
     }
     .notelist {
         font-size: 0.8rem;
+        flex-direction: column;
+        margin: 10px;
+    }
+    .notlist__item {
+        padding: 10px;
     }
     .notlist__item p {
         font-size: 0.7rem;
     }
+    .notlist__item label {
+        font-size: 0.64rem !important;
+        text-align: center;
+    }
+    .notlist__item div:not(.notelist__item__header) {
+        width: 100px !important;
+        word-wrap: break-word;
+    }
+    .notelist__item__header {
+        justify-content: space-around;
+        margin-bottom: 10px;
+        min-width: 110px;
+    }
+    .notelist__item__header svg {
+        width: 12px;
+    }
+    .notelist__item__header span {
+        padding: 5px;
+        font-size: 0.6rem;
+        height: 20px;
+    }
+    .notelist h4 {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    .notlist__item__action img {
+        width: 18px !important;
+    }
+    .notlist__item__action svg {
+        width: 20px !important;
+    }
+
     .footer__content p,
-    .footer__content h4,
+    .footer__content h5,
     .footer__socialmedia {
         font-size: 0.7rem;
     }
@@ -88,109 +181,380 @@
     .footer__content img {
         width: 12px;
     }
+    .theme__input__option {
+        padding: 5px;
+        width: 260px;
+        max-height: 110px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin: 50px auto !important;
+    }
+    .theme__input__option__color {
+        margin-bottom: 0px !important;
+    }
 }
-@media only screen and (min-device-width: 460px) and (max-device-width: 740px) {
-    .header h2 {
-        font-size: 1rem;
+@media only screen and (min-device-width: 460px) and (max-device-width: 599px) {
+    .header h4 {
+        font-size: 1.2rem;
+    }
+    .theme__text {
+        font-size: 0.75rem;
+    }
+    .css-1o554mq-MuiSwitch-root,
+    .css-ufx4qe-MuiSwitch-root {
+        margin: 2px !important;
+        width: 55px !important;
+        height: 25px !important;
+    }
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb,
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-thumb {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+        transform: translateX(28px) !important;
+    }
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb:before {
+        background-position: 4px 3px !important;
+        -webkit-background-position: 4px 3px !important;
+    }
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb:before {
+        background-position: 3px 3px !important;
+        -webkit-background-position: 3px 3px !important;
     }
     .header img {
-        width: 25px;
+        width: 27px;
+    }
+    .landingbox__guid span {
+        font-size: 0.8rem;
+        margin-left: 5px;
+    }
+    .landingbox__guid__circle {
+        width: 15px;
+        height: 15px;
+    }
+    .searchbox__input {
+        margin: 15px;
+    }
+    .searchbox__input,
+    .searchbox__input::placeholder,
+    .sort__select select {
+        font-size: 0.8rem !important;
+    }
+    .searchbox__input img {
+        margin: auto 160px;
+        width: 17px;
     }
     .landingbox__content div {
-        padding: 20px;
-        margin: 30px 10px;
+        margin-top: 25px;
+        padding: 0px !important;
+    }
+    .landingbox__content h3 {
+        font-size: 1.04rem;
+        font-weight: 800;
     }
     .landingbox__content span {
         width: auto;
         font-size: 0.7rem;
     }
     .button {
-        font-size: 0.8rem;
-        height: 50px;
-        width: 135px;
+        font-size: 0.9rem !important;
+        width: 130px !important;
+        height: 44px !important;
     }
-    input[type="text"],
-    textarea {
-        width: 100% !important;
-        font-size: 0.7rem;
-    }
-    .sort__search__box {
-        padding: 0;
-        width: 90%;
-    }
-    .searchbox__input img {
-        margin: auto 130px;
-        width: 18px;
+    .landing__arrow {
+        width: 80px !important;
+        margin: 98px 2px 0px -10px;
     }
     .filter {
-        padding: 30px;
-        align-items: center;
+        padding: 20px 30px;
+    }
+    textarea,
+    input[type="text"]:not(.search),
+    select:not(.sort) {
+        min-width: 270px;
     }
     .filter h2 {
-        font-size: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
     }
     .addnote {
-        margin: 10px;
-        align-items: inherit;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
     }
-    .notelist__items {
-        margin: 10px;
+    .addnote div:not(.addnote__star) {
+        margin-bottom: 35px;
     }
-    .notebody {
-        margin: 20px 30px 0 0;
+    .sort__search__box {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .notebody__lists {
+        display: grid;
     }
     .filter__item {
-        font-size: 0.85rem;
-        width: auto;
+        display: none;
     }
-    .filter__item div span {
+    .filter__item__res {
+        display: flex !important;
+        width: 90%;
+        margin: 10px auto;
+    }
+    .filter__item__res div span {
         font-size: 0.6rem;
-        margin: 10px;
     }
     .notelist {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        flex-direction: column;
+        margin: 10px;
+    }
+    .notlist__item {
+        padding: 10px;
     }
     .notlist__item p {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
+    .notlist__item label {
+        font-size: 0.78rem !important;
+    }
+    .notlist__item div:not(.notelist__item__header) {
+        word-wrap: break-word;
+    }
+    .notelist__item__header {
+        justify-content: space-around;
+        margin-bottom: 10px;
+        min-width: 110px;
+    }
+    .notelist__item__header svg {
+        width: 12px;
+    }
+    .notelist__item__header span {
+        padding: 5px;
+        font-size: 0.6rem;
+        height: 20px;
+    }
+    .notelist h4 {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    .notlist__item__action img {
+        width: 18px !important;
+    }
+    .notlist__item__action svg {
+        width: 20px !important;
+    }
+
     .footer__content p,
-    .footer__content h4,
+    .footer__content h5,
     .footer__socialmedia {
         font-size: 0.7rem;
     }
     .footer__icons {
-        width: 70%;
+        width: 100%;
     }
     .footer__content img {
-        width: 15px;
+        width: 12px;
+    }
+    .theme__input__option {
+        padding: 5px;
+        width: 260px;
+        max-height: 150px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin: 50px auto !important;
+    }
+    .theme__input__option__color {
+        margin-bottom: 0px !important;
     }
 }
-@media only screen and (min-device-width: 740px) and (max-device-width: 976px) {
-    input[type="text"]:not(#search),
-    textarea {
-        width: 100% !important;
+@media only screen and (min-device-width: 600px) and (max-device-width: 720px) {
+    .css-1o554mq-MuiSwitch-root,
+    .css-ufx4qe-MuiSwitch-root {
+        margin: 2px !important;
+        width: 65px !important;
+        height: 30px !important;
     }
-    .filter__item {
-        width: 21rem;
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb,
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-thumb {
+        width: 25px !important;
+        height: 25px !important;
     }
-    .addnote {
-        margin: 10px;
-        align-items: inherit;
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+        transform: translateX(38px) !important;
     }
-    .filter__item div span,
-    .filter__item__res div span {
-        font-size: 0.7rem;
+    .css-ufx4qe-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb:before {
+        background-position: 4px 3px !important;
+        -webkit-background-position: 4px 3px !important;
     }
-    .button {
-        font-size: 1rem;
+    .css-1o554mq-MuiSwitch-root .MuiSwitch-thumb:before {
+        background-position: 3px 3px !important;
+        -webkit-background-position: 3px 3px !important;
     }
-    .filter h2 {
-        font-size: 1.3rem;
+    .header img {
+        width: 28px;
     }
-    .footer__content img {
+    .landingbox__guid span {
+        font-size: 0.9rem;
+        margin-left: 5px;
+    }
+    .landingbox__guid__circle {
         width: 20px;
+        height: 20px;
+    }
+    .searchbox__input {
+        margin: 15px;
+    }
+    .searchbox__input,
+    .searchbox__input::placeholder,
+    .sort__select select {
+        font-size: 0.8rem !important;
+    }
+    .searchbox__input img {
+        margin: auto 160px;
+        width: 17px;
+    }
+    .landingbox__content div {
+        margin-top: 25px;
+        padding: 0px !important;
+    }
+    .landingbox__content h3 {
+        font-size: 1.04rem;
+        font-weight: 800;
     }
     .landingbox__content span {
         width: auto;
+        font-size: 0.7rem;
+    }
+    .button {
+        font-size: 0.9rem !important;
+        width: 130px !important;
+        height: 44px !important;
+    }
+    .landing__arrow {
+        width: 80px !important;
+        margin: 70px 2px 0px -10px;
+    }
+    .filter {
+        padding: 20px 30px;
+    }
+    input[type="text"],
+    select,
+    textarea {
+        max-width: 235px !important;
+    }
+    .filter h2 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .addnote {
+        display: flex;
+        align-items: center;
+    }
+    .addnote div:not(.addnote__star) {
+        margin-bottom: 35px;
+    }
+    .sort__search__box {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .notebody__lists {
+        display: grid;
+    }
+    .filter__item {
+        display: none;
+    }
+    .filter__item__res {
+        display: flex !important;
+        margin-top: -40px;
+    }
+    .filter__item__res div span {
+        font-size: 0.7rem;
+    }
+    .notelist {
+        font-size: 0.9rem;
+        flex-direction: column;
+    }
+    .notlist__item {
+        padding: 10px;
+    }
+    .notlist__item p {
+        font-size: 0.9rem;
+    }
+    .notlist__item label {
+        font-size: 0.78rem !important;
+    }
+    .notlist__item div:not(.notelist__item__header) {
+        word-wrap: break-word;
+    }
+    .notelist__item__header {
+        justify-content: space-around;
+        margin-bottom: 10px;
+        min-width: 110px;
+    }
+    .notelist__item__header svg {
+        width: 12px;
+    }
+    .notelist__item__header span {
+        padding: 5px;
+        font-size: 0.6rem;
+        height: 20px;
+    }
+    .notelist h4 {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    .notlist__item__action img {
+        width: 18px !important;
+    }
+    .notlist__item__action svg {
+        width: 20px !important;
+    }
+
+    .footer__content p,
+    .footer__content h5,
+    .footer__socialmedia {
+        font-size: 0.8rem;
+    }
+    .footer__icons {
+        width: 100%;
+    }
+    .footer__content img {
+        width: 12px;
+    }
+    .theme__input {
+        max-width: 235px !important;
+    }
+    .theme__input__option {
+        padding: 5px;
+        width: 225px;
+        max-height: 150px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin: 50px auto !important;
+    }
+    .theme__input__option__color {
+        margin-bottom: 0px !important;
+    }
+}
+
+@media only screen and (min-device-width: 720px) and (max-device-width: 768px) {
+    input[type="text"],
+    select,
+    textarea {
+        max-width: 290px !important;
+    }
+    .filter h2 {
+        font-size: 1.368rem;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 950px) {
+    input[type="text"],
+    select,
+    textarea {
+        max-width: 290px !important;
     }
 }

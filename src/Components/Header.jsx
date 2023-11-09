@@ -1,10 +1,17 @@
-import React from "react";
+import { Grid } from "@mui/material";
+import { UseTheme } from "./context/ThemeProvider";
 
-export default function Header() {
+export default function Header({ children }) {
+    const { theme } = UseTheme();
     return (
-        <div className="header">
+        <Grid container className={"header " + theme}>
             <img src="/Svg/logo.svg" />
-            <h2>Note App</h2>
-        </div>
+            <h4 className="header__title">
+                Vase Note <p>App!</p>
+            </h4>
+            <span className="theme__text">dark</span>
+            {children}
+            <span className="theme__text">light</span>
+        </Grid>
     );
 }
