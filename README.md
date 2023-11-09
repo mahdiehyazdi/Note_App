@@ -5,5 +5,11 @@
 Ui/Ux in this project 👇
 
 <div align="center">
-<img src="./public/Svg/uiPage.svg" >
+<img src="./public/light.png" >
+</div>
+<div align="center">
+<h1>Dark Theme</h1>
+</div>
+<div align="center">
+<img src="./public/dark.png" >
 </div>
